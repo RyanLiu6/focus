@@ -35,3 +35,15 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=<root password> next
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=<root password> nextcloud
 ```
+
+# Upgrades
+If automatic upgrades fail, run the following commands. (Courtesy of https://github.com/nextcloud/docker/issues/1652#issuecomment-986097091)
+
+```
+1. docker exec -ti nextcloud /bin/bash
+2. su - www-data -s /bin/bash -c /var/www/html/occ version
+3. apt update && apt install -y vim
+4. Update version
+5. su - www-data -s /bin/bash -c 'PHP_MEMORY_LIMIT=512M php /var/www/html/occ upgrade'
+6. su - www-data -s /bin/bash -c 'PHP_MEMORY_LIMIT=512M php /var/www/html/occ maintenance:mode --off'
+```
