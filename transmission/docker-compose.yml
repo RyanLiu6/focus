@@ -39,7 +39,6 @@ services:
       - "traefik.http.routers.transmission-secure.service=transmission"
       - "traefik.http.services.transmission.loadbalancer.server.port=9091"
 
-
 networks:
   proxy:
     external: true
