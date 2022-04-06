@@ -3,10 +3,13 @@
 For my purposes, I will be using Transmission as my main client.
 
 # Setup
+1. Create `.env` file with
 ```
-sudo service transmission-daemon stop
+TRANSMISSION_USERNAME=some_username
+TRANSMISSION_PASSWORD=some_password
+```
 
-cp settings.json /etc/transmission-daemon/settings.json
-
-sudo service transmission-daemon start
+2. Run it!
+```
+docker-compose up -d
 ```
