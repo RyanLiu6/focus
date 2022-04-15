@@ -8,7 +8,7 @@ services:
     network_mode: host
     volumes:
       - ${HOME}/Media/config/plex:/config
-      - ${HOME}/Media/Anime:/anime
+      - ${HOME}/Media/anime:/anime
     environment:
       - PUID=1000
       - PGID=1000
