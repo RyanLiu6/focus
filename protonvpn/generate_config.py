@@ -26,7 +26,7 @@ def generate_official(username: str) -> None:
     generate_helper(template_path=template_path, config_output_path=service_path, username=username)
 
 
-@click.command()
+@cli.command()
 @click.argument("username")
 def generate_community(username: str) -> None:
     """
