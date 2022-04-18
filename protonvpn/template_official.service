@@ -12,8 +12,3 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-
-[Service]
-Type=simple
-ExecStart=protonvpn-cli connect --fastest
-
