@@ -46,7 +46,7 @@ def generate_helper(template_path, config_output_path, username):
     with open(template_path, "r") as template_file:
         template = template_file.read()
 
-    template.format(user=username)
+    template = template.format(user=username)
 
     with open(config_output_path, "w+") as write_file:
         write_file.write(template)
