@@ -5,6 +5,8 @@ services:
     image: lscr.io/linuxserver/wireguard:latest
     container_name: wireguard_server
     restart: unless-stopped
+    networks:
+      - proxy
     ports:
       - 51820:51820/udp
     cap_add:
@@ -59,3 +61,7 @@ services:
       - "traefik.http.routers.wireguard-secure.tls.certresolver=http"
       - "traefik.http.routers.wireguard-secure.service=wireguard"
       - "traefik.http.services.wireguard.loadbalancer.server.port=51850"
+
+networks:
+  proxy:
+    external: true
