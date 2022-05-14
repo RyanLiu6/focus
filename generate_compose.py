@@ -64,7 +64,7 @@ def aggregate_env_file(services: List) -> str:
     aggregate_filename = os.path.join(root_dir, ".env")
     with open(aggregate_filename, "w") as write_file:
         for key, value in aggregate_config.items():
-            write_file.write(f"{key}=={value}")
+            write_file.write(f"{key}={value}")
 
     return aggregate_filename
 
