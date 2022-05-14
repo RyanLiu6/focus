@@ -80,7 +80,7 @@ def validate_config(files: List, env: str=None) -> str:
     Returns:
         str: String version of aggregated compose file config.
     """
-    params = ["docker-compose"]
+    params = ["docker", "compose"]
 
     if env:
         params.append("--env-file")
