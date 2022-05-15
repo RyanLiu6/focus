@@ -3,7 +3,7 @@ version: "3"
 services:
   gloomhaven_server:
     image: grepnull/gloomhaven-helper-headless:latest
-    container_name: gloomhaven_helper
+    container_name: gloomhaven_server
     restart: always
     networks:
       - proxy
@@ -28,7 +28,7 @@ services:
 
   gloomhaven_client:
     image: grepnull/gloomhaven-helper-headless:latest
-    container_name: gloomhaven_helper
+    container_name: gloomhaven_client
     restart: always
     networks:
       - proxy
