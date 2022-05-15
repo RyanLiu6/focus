@@ -17,6 +17,8 @@ echo $(htpasswd -nbB <USER> "<PASS>") | sed -e s/\\$/\\$\\$/g
 
 NOTE: If you're using an environment variable (via .env) like I am, remove the `sed` for string generation.
 
+Alternatively, you can use the script provided in the `traefik` folder - `generate_password.sh`!
+
 4. Create an `.env` file with:
 ```
 MONITOR_DOMAIN=`<traefik domain>`
