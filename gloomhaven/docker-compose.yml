@@ -18,13 +18,13 @@ services:
       - "traefik.http.routers.gloomhaven_server.entrypoints=http"
       - "traefik.http.routers.gloomhaven_server.rule=Host(${GHH_SERVER_DOMAIN})"
       - "traefik.http.routers.gloomhaven_server.middlewares=gloomhaven_server-https-redirect"
-      - "traefik.http.middlewares.gloomhaven-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.gloomhaven_server-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.gloomhaven_server-secure.entrypoints=https"
       - "traefik.http.routers.gloomhaven_server-secure.rule=Host(${GHH_SERVER_DOMAIN})"
       - "traefik.http.routers.gloomhaven_server-secure.tls=true"
       - "traefik.http.routers.gloomhaven_server-secure.tls.certresolver=http"
       - "traefik.http.routers.gloomhaven_server-secure.service=gloomhaven_server"
-      - "traefik.http.services.gloomhaven.loadbalancer.server.port=58888"
+      - "traefik.http.services.gloomhaven_server.loadbalancer.server.port=58888"
 
 networks:
   proxy:
