@@ -3,6 +3,10 @@ For my purposes, I'll be using Traefik as my proxy.
 
 # Setup
 1. Create and edit permissions to `traefik/acme.json`
+```
+touch acme.json
+chmod 600 acme.json
+```
 
 2. Edit `traefik/traefik.yml` with the correct email.
 
