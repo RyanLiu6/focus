@@ -8,8 +8,8 @@ services:
     networks:
       - proxy
     ports:
-      - 60000:58887/udp
-      - 60001:58888
+      - 58887:58887/udp
+      - 58888:58888
     volumes:
       - ${HOME}/Data/gloomhaven/server:/root/.ghh
     labels:
@@ -24,33 +24,7 @@ services:
       - "traefik.http.routers.gloomhaven_server-secure.tls=true"
       - "traefik.http.routers.gloomhaven_server-secure.tls.certresolver=http"
       - "traefik.http.routers.gloomhaven_server-secure.service=gloomhaven_server"
-      - "traefik.http.services.gloomhaven.loadbalancer.server.port=60001"
-
-  gloomhaven_client:
-    image: grepnull/gloomhaven-helper-headless:latest
-    container_name: gloomhaven_client
-    restart: always
-    networks:
-      - proxy
-    ports:
-      - 60002:58887/udp
-      - 60003:58888
-    volumes:
-      - ${HOME}/Data/gloomhaven/client:/root/.ghh
-    entrypoint: ["java", "-jar", "GloomhavenHelper/ghh.jar"]
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=proxy"
-      - "traefik.http.routers.gloomhaven_client.entrypoints=http"
-      - "traefik.http.routers.gloomhaven_client.rule=Host(${GHH_CLIENT_DOMAIN})"
-      - "traefik.http.routers.gloomhaven_client.middlewares=gloomhaven_client-https-redirect"
-      - "traefik.http.middlewares.gloomhaven-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.gloomhaven_client-secure.entrypoints=https"
-      - "traefik.http.routers.gloomhaven_client-secure.rule=Host(${GHH_CLIENT_DOMAIN})"
-      - "traefik.http.routers.gloomhaven_client-secure.tls=true"
-      - "traefik.http.routers.gloomhaven_client-secure.tls.certresolver=http"
-      - "traefik.http.routers.gloomhaven_client-secure.service=gloomhaven_client"
-      - "traefik.http.services.gloomhaven.loadbalancer.server.port=60003"
+      - "traefik.http.services.gloomhaven.loadbalancer.server.port=58888"
 
 networks:
   proxy:
