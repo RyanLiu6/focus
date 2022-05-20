@@ -1,7 +1,7 @@
 version: "3"
 
 volumes:
-  nextcloud_db:
+  db_volume:
     external: true
     name: nextcloud_db
 
@@ -14,7 +14,7 @@ services:
       - proxy
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
-      - nextcloud_db:/var/lib/mysql
+      - db_volume:/var/lib/mysql
     # env_file:
     #   - db.env
     environment:
