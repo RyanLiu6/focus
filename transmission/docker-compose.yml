@@ -20,7 +20,7 @@ services:
       - PGID=1000
       - TZ=America/Vancouver
       - USER=${TRANSMISSION_USERNAME}
-      - PASS=$${TRANSMISSION_PASSWORD}
+      - PASS=${TRANSMISSION_PASSWORD}
       - TRANSMISSION_WEB_HOME=/flood-for-transmission/
       # - WHITELIST=iplist
       # - PEERPORT=peerport
