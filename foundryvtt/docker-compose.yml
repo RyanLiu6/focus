@@ -11,8 +11,8 @@ services:
       - ${HOME}/Data/foundry/data:/data
     environment:
       - FOUNDRY_USERNAME=${FOUNDRY_USERNAME}
-      - FOUNDRY_PASSWORD=${FOUNDRY_PASSWORD}
-      - FOUNDRY_ADMIN_KEY=${FOUNDRY_ADMIN_KEY}
+      - FOUNDRY_PASSWORD=$${FOUNDRY_PASSWORD}
+      - FOUNDRY_ADMIN_KEY=$${FOUNDRY_ADMIN_KEY}
       - FOUNDRY_AWS_CONFIG=/data/Config/s3.json
       - FOUNDRY_PROXY_PORT=30000
       - FOUNDRY_PROXY_SSL=true
