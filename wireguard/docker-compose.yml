@@ -21,8 +21,8 @@ services:
       - WG_HOST=${WG_HOST}
       - PASSWORD=${WG_PASSWORD}
       - WG_PRE_UP=echo "${WG_PRE_UP}" > /etc/wireguard/pre-up.txt
-      - WG_POST_UP=echo "${WG_POST_UP}" > /etc/wireguard/post-up.txt
-      - WG_PRE_DOWN=echo "${WG_PRE_DOWN}" > /etc/wireguard/pre-down.txt
+      # - WG_POST_UP=echo "${WG_POST_UP}" > /etc/wireguard/post-up.txt
+      # - WG_PRE_DOWN=echo "${WG_PRE_DOWN}" > /etc/wireguard/pre-down.txt
       - WG_POST_DOWN=echo "${WG_POST_DOWN}" > /etc/wireguard/post-down.txt
     labels:
       - "traefik.enable=true"
@@ -37,3 +37,7 @@ services:
       - "traefik.http.routers.wireguard-secure.tls.certresolver=http"
       - "traefik.http.routers.wireguard-secure.service=wg-easy"
       - "traefik.http.services.wireguard.loadbalancer.server.port=51821"
+
+networks:
+  proxy:
+    external: true
