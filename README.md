@@ -32,4 +32,10 @@ The most recent update to config files and this README has been inspired by [thi
 ## Usage
 Each folder has description and usage for individual services, should you wish only do so.
 
-In order to run things smoothly, a script has been provided `generate_compose.py`, that, depending on input, aggregates compose files and `.env` files to generate one main file to work with.
+In order to run things smoothly, a script has been provided `generate_compose.py`. Please look at the [Python Script](#python-script) section for further details.
+
+### Note
+One thing to note is that instead of Official Docker Images, I tend to use images packaged by the folks at [linuxserver](https://www.linuxserver.io/). Feel free to change these Docker images to official or any other 3rd party images. I personally prefer linuxserver as their configuration is standarized between all their images, and that is super helpful when added new services here.
+
+## Python Script
+This is a custom Python script I wrote to help manage compose and env files. This is specifically helpful as it aggregates compose and `.env`files to generate one main compose and `.env` file each to work with.
