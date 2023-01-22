@@ -7,7 +7,7 @@
 
 Self-hosted tools and services I have setup for myself at home.
 
-The most recent update to config files and this README has been inspired by [this](https://github.com/BaptisteBdn/docker-selfhosted-apps) amazing repo!
+For some of the following services, some config and README files come directly from [this](https://github.com/BaptisteBdn/docker-selfhosted-apps) amazing repo! I've only made minor changes that fits my own personal use-case more.
 
 ## Services
 ### Core

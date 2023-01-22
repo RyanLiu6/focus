@@ -41,7 +41,7 @@ JELLYFIN_DOMAIN=`<jellyfin domain>`
 
 3. Run it!
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 # Update
