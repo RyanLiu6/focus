@@ -8,6 +8,10 @@ Jellyfin is a free media server that lets you organize and control your media.
 
 For my purposes, I'll be running an instance of both Plex and Jellyfin to separate types of entertainment, as well as who has access to what services. This is done to separate my personal interests ie Anime, with the interests of my parents, where my server lives.
 
+* [Github](https://github.com/jellyfin/jellyfin)
+* [Documentation](https://jellyfin.org/docs/)
+* [Docker Image](https://hub.docker.com/r/linuxserver/jellyfin/)
+
 # File Structure
 ```bash
 .
