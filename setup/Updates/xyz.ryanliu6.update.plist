@@ -6,7 +6,7 @@
   <string>xyz.ryanliu6.update.plist</string>
 
   <key>Program</key>
-  <string>/Users/ryanliu6/dev/setup/Updates/brew_update.sh</string>
+  <string>/Users/ryanliu6/dev/focus/setup/Updates/brew_update.sh</string>
 
   <key>Nice</key>
   <integer>1</integer>

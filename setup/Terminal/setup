@@ -9,5 +9,5 @@ fi
 npm install -g spaceship-prompt
 
 # Automatically moving the correct file for you, assuming default installation
-cp ~/dev/setup/Terminal/.zshrc ~/.zshrc
+cp ~/dev/focus/setup/Terminal/.zshrc ~/.zshrc
 source ~/.zshrc

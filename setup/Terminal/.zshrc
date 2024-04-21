@@ -1,6 +1,6 @@
 # source: https://github.com/xero/dotfiles
-for config (~/dev/focus/setup/Terminal/.zsh/*.zsh) source $config
-for config (~/dev/focus/setup/ignore/*.zsh) source $config
+for config in ~/dev/focus/setup/Terminal/.zsh/*.zsh; do source $config; done
+for config in ~/dev/focus/setup/ignore/*.zsh; do source $config; done
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
