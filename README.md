@@ -37,7 +37,7 @@ There's a flag to include everything, `--all`, which will generate a compose fil
 ### Examples
 To generate and run for just Plex, Transmission and Nextcloud:
 ```bash
-./generate_compose --service plex --service transmission --service nextcloud
+./generate_compose plex transmission nextcloud
 docker compose run -d
 ```
 
