@@ -6,77 +6,33 @@ import logging
 
 from typing import List
 
-# from vigor.compose import Compose
+from vigor.compose import Compose
 from vigor.utils import get_immediate_subdirectories
 
-
-import sys
-import subprocess
-
-class CommandRunner(ABC):
-    def run(self, *args, **kwargs) -> subprocess.CompletedProcess:
-        """
-        Run some CLI command, constructed from args and kwargs.
-
-        Returns:
-            subprocess.CompletedProcess: Completed Process, which will contain output
-            and exit codes.
-        """
-        logging.info(f"Command: {args}")
-        sys.stdout.flush()
-
-        try:
-            return subprocess.run(args, shell=False, check=True, encoding="utf-8", **kwargs)
-        except subprocess.CalledProcessError as e:
-            logging.error(
-                f"""
-                Command ran with {args} resulted in an error:
-                {e.stdout if e.stdout else ""}
-                {e.stderr if e.stderr else ""}
-                """
-            )
-            raise
-
-
-class Compose(CommandRunner):
-    def run(self, *args) -> str:
-        params = ["docker", "compose"]
-        params.extend(args)
-
-        process = super().run(*params, capture_output=True)
-        return process.stdout
-
-    def help(self) -> str:
-        params = ["--help"]
-
-        return self.run(*params)
-
-    def generate_compose_file(self, files: List[str], env: str=None) -> str:
-        params = ["config"]
-
-        if env:
-            params.append("--env-file")
-            params.append(env)
-
-        for file in files:
-            params.append("--file")
-            params.append(file)
-
-        return self.run(*params)
-
-
 # Some global stuff I don't know how to not abstract
-root_dir = os.path.dirname(os.path.abspath(__file__))
-services = get_immediate_subdirectories(full_path=root_dir, ignore=[".git"], absolute_path=False)
+root_dir = os.path.dirname(os.path.abspath(__name__))
+all_services = get_immediate_subdirectories(full_path=root_dir, ignore=[".git"])
+core_services = ["traefik"]
 
 
 @click.command()
-@click.option("--service", type=click.Choice(services),
-    help="Services to generate compose file for.", required=True, multiple=True)
-def generate_config(services):
+@click.argument("services", type=click.Choice(all_services), nargs=-1)
+@click.option("-v", "--verbose", is_flag=True, default=False, help="Verbose mode.")
+@click.option("-a", "--all", is_flag=True, default=False, help="Generate Compose file for all possible services.")
+def generate_config(services, verbose, all):
     """
     Generates aggregated docker-compose.yml for services.
     """
+    log_level = logging.INFO if verbose else logging.WARNING
+    logging.basicConfig(level=log_level)
+
+    if all:
+        services = all_services
+    else:
+        # Is this more performant than iterating through core_services and doing `in` check with append?
+        services = list(set(services + core_services))
+
+    logging.info(f"Services selected: {services}")
     files = []
     for service in services:
         files.append(os.path.join(root_dir, service, "docker-compose.yml"))
@@ -85,7 +41,7 @@ def generate_config(services):
 
     aggregated_compose = os.path.join(root_dir, "docker-compose.yml")
     with open(aggregated_compose, "w") as compose_file:
-        compose = Compose()
+        compose = Compose("Focus")
         compose_config = compose.generate_compose_file(files=files, env=aggregated_env)
         compose_file.write(compose_config)
         logging.info(f"Aggregated docker-compose.yml file created at {aggregated_compose}")
@@ -110,6 +66,7 @@ def aggregate_env_file(services: List) -> str:
 
     # Only proceed if there's any files
     if not env_files:
+        logging.info("No .env files found for selected services")
         return
 
     aggregate_config = {}
@@ -123,6 +80,8 @@ def aggregate_env_file(services: List) -> str:
     with open(aggregate_filename, "w") as write_file:
         for key, value in aggregate_config.items():
             write_file.write(f"{key}={value}")
+
+    logging.info(f"Aggregated .env file created at {aggregate_filename}")
 
     return aggregate_filename
 
