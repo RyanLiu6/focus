@@ -5,8 +5,9 @@ import click
 import logging
 
 from typing import List
-from vigor.utils import CommandRunner, get_immediate_subdirectories
 
+from vigor.compose import Compose
+from vigor.utils import get_immediate_subdirectories
 
 # Some global stuff I don't know how to not abstract
 root_dir = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +29,8 @@ def generate_config(services):
 
     aggregated_compose = os.path.join(root_dir, "docker-compose.yml")
     with open(aggregated_compose, "w") as compose_file:
-        compose_config = validate_config(files=files, env=aggregated_env)
+        compose = Compose()
+        compose_config = compose.generate_compose_file(files=files, env=aggregated_env)
         compose_file.write(compose_config)
         logging.info(f"Aggregated docker-compose.yml file created at {aggregated_compose}")
 
@@ -67,34 +69,6 @@ def aggregate_env_file(services: List) -> str:
             write_file.write(f"{key}={value}")
 
     return aggregate_filename
-
-
-def validate_config(files: List, env: str=None) -> str:
-    """
-    Validates and aggregates docker-compose.yml configurations.
-
-    Args:
-        files (List): List of docker-compose.yml files.
-        env (str, optional): Additional env file. Defaults to None.
-
-    Returns:
-        str: String version of aggregated compose file config.
-    """
-    params = ["docker", "compose"]
-
-    if env:
-        params.append("--env-file")
-        params.append(env)
-
-    for file in files:
-        params.append("--file")
-        params.append(file)
-
-    params.append("config")
-
-    completed_process = CommandRunner().run(*params, capture_output=True)
-
-    return completed_process.stdout
 
 
 if __name__ == "__main__":
