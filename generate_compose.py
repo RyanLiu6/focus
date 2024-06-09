@@ -10,6 +10,34 @@ from typing import List
 from vigor.utils import get_immediate_subdirectories
 
 
+import sys
+import subprocess
+
+class CommandRunner(ABC):
+    def run(self, *args, **kwargs) -> subprocess.CompletedProcess:
+        """
+        Run some CLI command, constructed from args and kwargs.
+
+        Returns:
+            subprocess.CompletedProcess: Completed Process, which will contain output
+            and exit codes.
+        """
+        logging.info(f"Command: {args}")
+        sys.stdout.flush()
+
+        try:
+            return subprocess.run(args, shell=False, check=True, encoding="utf-8", **kwargs)
+        except subprocess.CalledProcessError as e:
+            logging.error(
+                f"""
+                Command ran with {args} resulted in an error:
+                {e.stdout if e.stdout else ""}
+                {e.stderr if e.stderr else ""}
+                """
+            )
+            raise
+
+
 class Compose(CommandRunner):
     def run(self, *args) -> str:
         params = ["docker", "compose"]
