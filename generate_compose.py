@@ -6,8 +6,36 @@ import logging
 
 from typing import List
 
-from vigor.compose import Compose
+# from vigor.compose import Compose
 from vigor.utils import get_immediate_subdirectories
+
+
+class Compose(CommandRunner):
+    def run(self, *args) -> str:
+        params = ["docker", "compose"]
+        params.extend(args)
+
+        process = super().run(*params, capture_output=True)
+        return process.stdout
+
+    def help(self) -> str:
+        params = ["--help"]
+
+        return self.run(*params)
+
+    def generate_compose_file(self, files: List[str], env: str=None) -> str:
+        params = ["config"]
+
+        if env:
+            params.append("--env-file")
+            params.append(env)
+
+        for file in files:
+            params.append("--file")
+            params.append(file)
+
+        return self.run(*params)
+
 
 # Some global stuff I don't know how to not abstract
 root_dir = os.path.dirname(os.path.abspath(__file__))
