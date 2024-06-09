@@ -15,7 +15,7 @@ services = get_immediate_subdirectories(full_path=root_dir, ignore=[".git"], abs
 
 
 @click.command()
-@click.option("--services", type=click.Choice(services),
+@click.option("--service", type=click.Choice(services),
     help="Services to generate compose file for.", required=True, multiple=True)
 def generate_config(services):
     """
