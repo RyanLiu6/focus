@@ -10,8 +10,8 @@ For my purposes, I will be using Discord as my method of notification, as this i
 
 Thus, we will need to create an `.env` file with:
 ```ini
-DISCORD_TOKEN=asdfasdf
-DISCORD_ID=12341234
+DISCORD_TOKEN=<some token>
+DISCORD_ID=<some id>
 ```
 
 For other notification methods, please follow the documentation and change both `.env` and `docker-compose.yml` as needed.

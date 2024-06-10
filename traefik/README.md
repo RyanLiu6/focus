@@ -21,7 +21,7 @@ ADMIN_PASSWORD=<password from step 4 with duplicate $ removed>
 
 4. Add DNS Provider specific configuration to `.env` and `docker-compose.yml`. In my case, I'm using CloudFlare, and so my file will have the following:
 ```ini
-CLOUDFLARE_DNS_API_TOKEN=123412341234
+CLOUDFLARE_DNS_API_TOKEN=<some token>
 ```
 
 ```yaml
