@@ -2,12 +2,11 @@
 
 Collection of self-hosted services for my personal multi-media home server.
 
-Full credits to [this](https://github.com/BaptisteBdn/docker-selfhosted-apps) repo for introducing borg and watchtower, as those configs were directly from there! Documentation for this repo has been influenced for the better from there as well.
+Full credits to [this](https://github.com/BaptisteBdn/docker-selfhosted-apps) repo for introducing watchtower and overall better documentation.
 
 ## Services
 ### Core
 * [traefik](traefik/) - reverse proxy and cert manager
-* [borg-backup](borg-backup/) - backups
 * [watchtower](watchtower/) - automatic docker images update
 
 ### Content
