@@ -1,5 +1,5 @@
-# Transmission
-[Transmission](https://transmissionbt.com/) <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Transmission_icon.png" width="32"> is a highly customizable and free BitTorrent client.
+# Transmission <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Transmission_icon.png" width="24">
+[Transmission](https://transmissionbt.com/) is a highly customizable and free BitTorrent client.
 
 Docker Image is from Linuxserver, found [here](https://hub.docker.com/r/linuxserver/transmission).
 
