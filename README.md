@@ -32,7 +32,8 @@ docker network create proxy
 ## Docker
 Some basic knowledge of Docker and Docker Compose would be good, but not required, as it is fairly easy to pick up and learn. For Docker, please refer to [this](https://docs.docker.com/get-started/overview/) document, and [this](https://docs.docker.com/compose/gettingstarted/) for Docker Compose.
 
-This guide and individual READMEs assume that your user has been added to the docker group so that all `docker` commands can be ran without the need to use `sudo`. The guide to so can be found [here](https://docs.docker.com/engine/install/linux-postinstall/).
+> [!NOTE]
+> This guide and individual READMEs assume that your user has been added to the docker group so that all `docker` commands can be ran without the need to use `sudo`. The guide to so can be found [here](https://docs.docker.com/engine/install/linux-postinstall/).
 
 ### Compose
 The provided `generate_compose.py` script uses my custom Python Library, [Vigor](https://www.github.com/ryanliu6/vigor) to interface with the CLI to generate an aggregated compose file with the correct values from related `.env` files. This is done so that each individual service is self-contained within their own subdirectories and can be run independently of each other. But, the intended usage is to pick and choose which services to run for your servers and only generate a compose file for what is needed.
