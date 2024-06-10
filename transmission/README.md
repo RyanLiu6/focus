@@ -5,7 +5,7 @@ Docker Image is from Linuxserver, found [here](https://hub.docker.com/r/linuxser
 
 ## Setup
 1. Create an `.env` file with
-```
+```ini
 TRANSMISSION_USERNAME=<some_username>
 TRANSMISSION_PASSWORD=<some_password>
 BT_DOMAIN=`<some_domain>`
@@ -36,5 +36,5 @@ This container will have its image automatically updated via [watchtower](https:
 Data for Transmission is stored locally at `${HOME}/Data/transmission`, and if you wish, create or update cronjob to backup data with:
 
 ```
-0 2 * * 4 sudo tar -cf /home/<user>/Data/transmission/backups/transmission_`date +\%F`.tar /home/<user>/Data/transmission
+0 0 * * 4 sudo tar -cf /home/$USER/Data/transmission/backups/`date +\%F`.tar /home/$USER/Data/transmission
 ```

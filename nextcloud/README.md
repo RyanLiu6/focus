@@ -5,7 +5,7 @@ Docker Image is from Linuxserver, found [here](https://hub.docker.com/r/linuxser
 
 ## Setup
 1. Create an `.env` file with:
-```
+```ini
 CLOUD_DOMAIN=<nextcloud domain>
 MYSQL_PASSWORD=<PASSWORD>
 MYSQL_DATABASE=nextcloud
@@ -14,7 +14,7 @@ MYSQL_ROOT_PASSWORD=<PASSWORD>
 ```
 
 2. Run it!
-```
+```bash
 docker-compose up -d
 ```
 > [!NOTE]
@@ -37,7 +37,7 @@ This container will have its image automatically updated via [watchtower](https:
 
 If automatic upgrades fail, run the following commands. (More information found [here](https://github.com/nextcloud/docker/issues/1652#issuecomment-986097091))
 
-```
+```bash
 1. docker exec -ti nextcloud /bin/bash
 2. su - www-data -s /bin/bash -c /var/www/html/occ version
 3. apt update && apt install -y vim

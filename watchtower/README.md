@@ -5,7 +5,7 @@ Docker Image is from containrrr, found [here](https://hub.docker.com/r/containrr
 
 ## Setup
 1. Create an `.env` file with
-```
+```ini
 asdf
 xyz
 ```

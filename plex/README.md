@@ -17,4 +17,4 @@ docker-compose up -d
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
 ## Backup
-There's not much to backup for this, since the data that will be backed up will be the actual media to be shared.
+There's not much to backup for Plex, since the data that will be backed up will be the actual media to be shared.
