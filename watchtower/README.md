@@ -1,6 +1,5 @@
-# Watchtower
-[Watchtower](https://containrrr.dev/watchtower/) <img src="https://github.com/containrrr/watchtower/blob/main/logo.png?raw=true" width="32"> is a method to automatically and gracefully update the image running for an existing container.
-
+# Watchtower <img src="https://github.com/containrrr/watchtower/blob/main/logo.png?raw=true" width="32">
+[Watchtower](https://containrrr.dev/watchtower/) is a method to automatically and gracefully update the image running for an existing container.
 
 Docker Image is from containrrr, found [here](https://hub.docker.com/r/containrrr/watchtower).
 
