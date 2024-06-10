@@ -13,9 +13,8 @@ docker-compose up -d
 
 2. Configure this server with your plex credentials to connect it.
 
-## Notes
-### Updates
+## Updates
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
-### Backup
+## Backup
 There's not much to backup for this, since the data that will be backed up will be the actual media to be shared.

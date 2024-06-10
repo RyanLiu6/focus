@@ -29,11 +29,10 @@ For your router, you'll need to configure that manually as each router will look
 docker-compose up -d
 ```
 
-## Notes
-### Updates
+## Updates
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
-### Backup
+## Backup
 Data for Transmission is stored locally at `${HOME}/Data/transmission`, and if you wish, create or update cronjob to backup data with:
 
 ```

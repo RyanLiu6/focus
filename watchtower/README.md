@@ -15,9 +15,8 @@ xyz
 docker-compose up -d
 ```
 
-## Notes
-### Updates
+## Updates
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
-### Backup
+## Backup
 N/A
