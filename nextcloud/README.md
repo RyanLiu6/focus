@@ -1,5 +1,5 @@
 # NextCloud <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Nextcloud_Logo.svg" width="32">
-
+[NextCloud](https://nextcloud.com/) is an open-source alternative to the many offerings that Google provides, mainly for storage and collaboration.
 
 Docker Image is from Linuxserver, found [here](https://hub.docker.com/r/linuxserver/nextcloud).
 

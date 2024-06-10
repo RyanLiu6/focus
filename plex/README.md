@@ -1,5 +1,5 @@
 # Plex <img src="https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg" width="32">
-[Watchtower](https://containrrr.dev/watchtower/) is a Home Media system.
+[Plex](https://www.plex.tv/) is a Home Media system.
 
 For my own purposes, I've split up media types to use both Plex and Jellyfin to better share media with my family members. Feel free to use one or the other if you don't need to split them!
 
