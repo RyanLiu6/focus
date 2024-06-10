@@ -3,6 +3,8 @@ FoundryVTT is a powerful software to play role-playing Table Top games online.
 
 Base tutorial came from [here](https://benprice.dev/posts/fvtt-docker-tutorial/)
 
+Docker Image is from felddy, found [here](https://hub.docker.com/r/felddy/foundryvtt).
+
 ## Setup
 1. Create an `.env` file with:
 ```ini
