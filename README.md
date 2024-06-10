@@ -24,9 +24,17 @@ Full credits to [this](https://github.com/BaptisteBdn/docker-selfhosted-apps) re
 ## Usage
 Each folder has description and usage for individual services, should you wish only do so. Otherwise, an aggregated, "centralized" docker-compose.yml file can be generated via the provided `generate_compose.py` file. Please look at the [Docker](#Docker) section for further details.
 
+If the aggregated approach is taken, we will need to create the proxy network that other containers use first. This can be done with
+```bash
+docker network create proxy
+```
+
 ## Docker
 Some basic knowledge of Docker and Docker Compose would be good, but not required, as it is fairly easy to pick up and learn. For Docker, please refer to [this](https://docs.docker.com/get-started/overview/) document, and [this](https://docs.docker.com/compose/gettingstarted/) for Docker Compose.
 
+This guide and individual READMEs assume that your user has been added to the docker group so that all `docker` commands can be ran without the need to use `sudo`. The guide to so can be found [here](https://docs.docker.com/engine/install/linux-postinstall/).
+
+### Compose
 The provided `generate_compose.py` script uses my custom Python Library, [Vigor](https://www.github.com/ryanliu6/vigor) to interface with the CLI to generate an aggregated compose file with the correct values from related `.env` files. This is done so that each individual service is self-contained within their own subdirectories and can be run independently of each other. But, the intended usage is to pick and choose which services to run for your servers and only generate a compose file for what is needed.
 
 To be specific, Traefik will always be included in the generated compose file as the absolute core, since its needed to serve traffic. The other core services of Borg and Watchtower are optional and can be included manually.
