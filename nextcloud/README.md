@@ -21,9 +21,8 @@ docker-compose up -d
 > This assumes that `focus` is checked out at `$HOME/dev/focus`!
 
 ## Backups
-Data for NextCloud is stored locally at `$HOME/Data/nextcloud`.
+Data for NextCloud is stored locally at `$HOME/Data/nextcloud`, and can be backed up with the following:
 
-Below are commands for backing up and restoring from backup. Feel free to modify a cronjob to automatically backup every so often.
 ```bash
 # Backup
 docker exec CONTAINER /usr/bin/mysqldump -u root --password=<root password> nextcloud > backup.sql
@@ -31,6 +30,10 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=<root password> next
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=<root password> nextcloud
 ```
+
+> [!NOTE]
+> A cronjob specification is not provided here as I personally no longer use NextCloud as I used to. Feel free to
+> copy configuration from other services in this repo for a period cronjob.
 
 ## Updates
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).

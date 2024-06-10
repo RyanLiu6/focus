@@ -25,11 +25,11 @@ docker compose up -d
 ## Updates
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
-## Backup
+## Backups
 There's not much to backup for Jellyfin, since the data that will be backed up will be the actual media to be shared.
 
-If you so wish, config can be backed up and preserved; its stored locally at `${HOME}/Media/config/jellyfin`, and can be backed up via cronjob with:
+If you so wish, config can be backed up and preserved; its stored locally at `${HOME}/Media/config/jellyfin`, and can be backed up via cronjob with the following:
 
 ```
-0 0 * * 1 sudo tar -cf /home/$USER/Data/jellyfin/backups/`date+%F`.tar /home/<user>/Media/config/jellyfin
+0 0 * * 1 sudo tar -cf $HOME/Data/jellyfin/backups/`date+%F`.tar /home/<user>/Media/config/jellyfin
 ```

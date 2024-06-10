@@ -16,7 +16,7 @@ providers:
     watch: true
 
 certificatesResolvers:
-  mydnschallenge:
+  certchallenge:
     acme:
       email: mail@example.com
       storage: ./letsencrypt/acme.json

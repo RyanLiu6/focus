@@ -33,7 +33,7 @@ docker-compose up -d
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
 ## Backup
-Data for Transmission is stored locally at `${HOME}/Data/transmission`, and if you wish, create or update cronjob to backup data with:
+Data for Transmission is stored locally at `${HOME}/Data/transmission`, and can be backed up via cronjob with the following:
 
 ```
 0 0 * * 4 sudo tar -cf /home/$USER/Data/transmission/backups/`date +\%F`.tar /home/$USER/Data/transmission
