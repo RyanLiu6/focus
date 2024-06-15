@@ -36,6 +36,9 @@ Other DNS Providers will have differing configuration. You can find providers [h
 docker-compose up -d
 ```
 
+> [!NOTE]
+> This assumes that `focus` is checked out at `$HOME/dev/focus`!
+
 ## Updates
 This container will have its image automatically updated via [watchtower](https://ryanliu6/focus/watchtower).
 
