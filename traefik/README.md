@@ -1,4 +1,4 @@
-# FoundryVTT <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Traefik.logo.png" width="24">
+# Traefik <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Traefik.logo.png" width="24">
 [Traefik](https://doc.traefik.io/traefik/) is an open-source reverse proxy and load balancer.
 
 Docker Image is from traefik, found [here](https://hub.docker.com/r/traefik/traefik).
