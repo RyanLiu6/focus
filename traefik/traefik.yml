@@ -1,11 +1,14 @@
 api:
   dashboard: true
+  insecure: false
 
 entryPoints:
   http:
     address: ":80"
   https:
     address: ":443"
+  traefik:
+    address: ":8080"
 
 providers:
   docker:
