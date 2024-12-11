@@ -43,6 +43,14 @@ services:
       - "traefik.http.middlewares.redirect-root-to-www.redirectregex.regex=^https://${DOMAIN}\\.${TLD}/(.*)"
       - "traefik.http.middlewares.redirect-root-to-www.redirectregex.replacement=https://www.${DOMAIN}.${TLD}/$${1}"
 
+      # Dashboard
+      - "traefik.http.routers.traefik.rule=Host(`${DOMAIN}.${TLD}`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.entrypoints=https"
+      - "traefik.http.routers.traefik.tls=true"
+      - "traefik.http.routers.traefik.tls.certresolver=certchallenge"
+      - "traefik.http.routers.traefik.middlewares=auth"
+
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
 
