@@ -21,7 +21,7 @@ providers:
 certificatesResolvers:
   certchallenge:
     acme:
-      email: dioz.rl@gmail.com
+      email: mail@example.com
       storage: ./letsencrypt/acme.json
       dnsChallenge:
         provider: cloudflare
